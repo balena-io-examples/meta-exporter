@@ -1,5 +1,6 @@
 version: '2'
 services:
+
     meta-exporter:
         build: ./meta-exporter
         network_mode: 'host'
