@@ -1,0 +1,11 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine-node:10.10
+RUN install_packages git && mkdir -p /app/
+ADD . /app/
+WORKDIR /app
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
+    apk add --no-cache prometheus-node-exporter tar && \
+#    wget -O /app/apk_exporter.tar.gz \
+#    https://github.com/DerKnerd/apk-exporter/releases/download/0.1.0/apk_exporter_amd64.tar.gz && \
+#    tar xzvf /app/apk_exporter.tar.gz && \
+    npm install && npm run build
+CMD [ "/app/entry.sh" ]
