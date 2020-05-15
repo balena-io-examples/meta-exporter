@@ -1,0 +1,20 @@
+version: '2'
+services:
+
+    meta-exporter:
+        build: ./meta-exporter
+        network_mode: 'host'
+        environment:
+            - 'SCRAPE_PORTS=9100,9101'
+    node-exporter:
+        build: ./node-exporter
+        environment:
+            - 'SCRAPE_PORT=9100'
+        ports:
+            - '9100:9100'
+    nod3-exporter:
+        build: ./node-exporter
+        environment:
+            - 'SCRAPE_PORT=9101'
+        ports:
+            - '9101:9101'

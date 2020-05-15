@@ -1,0 +1,5 @@
+FROM prom/blackbox-exporter
+WORKDIR /bin
+COPY blackbox.yml entry.sh /bin/
+ENV SCRAPE_PORT=9999
+ENTRYPOINT "/bin/entry.sh"
