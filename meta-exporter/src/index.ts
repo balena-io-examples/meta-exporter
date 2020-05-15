@@ -9,12 +9,12 @@ const META_EXPORTER_PORT: number =
 
 metrics.describe(
 	'successful_scrapes_count',
-	'number of mega-scrapes that have succeeded',
+	'number of meta-scrapes that have succeeded',
 );
 
 metrics.describe(
 	'unsuccessful_scrapes_count',
-	'number of mega-scrapes that have failed',
+	'number of meta-scrapes that have failed',
 );
 
 let urlList = (process.env.SCRAPE_URLS.split(',') as unknown) as string[];
